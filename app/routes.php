@@ -20,6 +20,16 @@ App::Middleware('/tr', function () {
  *                 Giriş/Kayıt                   *
  *************************************************/
 
+App::LanguageRoute('POST', [
+    'tr' => '/tr/register',
+    'en' => '/en/register',
+], '/register');
+
+App::LanguageRoute('POST', [
+    'tr' => '/tr/login',
+    'en' => '/en/login',
+], '/login');
+
 // 404
 App::LanguageRoute('GET', [
     'tr' => '/tr/404',

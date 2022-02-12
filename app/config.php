@@ -26,5 +26,4 @@ if ($_ENV["MINIFY"])
 App::addModule($modules);
 
 App::json();
-
 App::cors();
