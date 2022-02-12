@@ -11,7 +11,15 @@ class LanguageEN extends Model
             $this->notFound(),
             $this->other(),
             $this->loginRegister(),
+            $this->carbon(),
         );
+    }
+
+    // Carbon
+    private function carbon() {
+        return [
+            "carbon successfully brought" => "Successfully brought."
+        ];
     }
 
     // Login / Register

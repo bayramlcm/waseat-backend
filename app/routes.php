@@ -30,6 +30,31 @@ App::LanguageRoute('POST', [
     'en' => '/en/login',
 ], '/login');
 
+
+/*************************************************
+ *                Araba Bilgisi                  *
+ *************************************************/
+
+App::LanguageRoute('POST', [
+    'tr' => '/tr/carbon/car/years',
+    'en' => '/en/carbon/car/years',
+], '/carbon/car/years');
+
+App::LanguageRoute('POST', [
+    'tr' => '/tr/carbon/car/brands',
+    'en' => '/en/carbon/car/brands',
+], '/carbon/car/brands');
+
+App::LanguageRoute('POST', [
+    'tr' => '/tr/carbon/car/models',
+    'en' => '/en/carbon/car/models',
+], '/carbon/car/models');
+
+App::LanguageRoute('POST', [
+    'tr' => '/tr/carbon/car/variants',
+    'en' => '/en/carbon/car/variants',
+], '/carbon/car/variants');
+
 // 404
 App::LanguageRoute('GET', [
     'tr' => '/tr/404',

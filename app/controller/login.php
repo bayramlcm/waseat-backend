@@ -18,6 +18,7 @@ class Login extends Controller
 
         $json = $this->getJSON();
         $params = ["email", "password"];
+        if ($json === null) exit(json_encode($return));
         foreach ($params as $param)
             if (!isset($json[$param])) exit(json_encode($return));
 

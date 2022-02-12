@@ -17,6 +17,7 @@ class Register extends Controller
         ];
 
         $json = $this->getJSON();
+        if ($json === null) exit(json_encode($return));
         $params = ["fullname", "email", "phone", "password",];
         foreach ($params as $param)
             if (!isset($json[$param])) exit(json_encode($return));

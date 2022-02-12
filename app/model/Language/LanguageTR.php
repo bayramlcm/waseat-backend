@@ -11,7 +11,15 @@ class LanguageTR extends Model
             $this->notFound(),
             $this->other(),
             $this->loginRegister(),
+            $this->carbon(),
         );
+    }
+
+    // Carbon
+    private function carbon() {
+        return [
+            "carbon successfully brought" => "Başarıyla getirildi."
+        ];
     }
 
     // Login / Register
