@@ -12,6 +12,7 @@ App::setConfig(
     ],
     'jwt' => $_ENV["JWT"],
     'cors' => $_ENV["CORS"],
+    'MAPS_API_KEY' => $_ENV["MAPS_API_KEY"]
   ]
 );
 

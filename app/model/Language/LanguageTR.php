@@ -12,7 +12,15 @@ class LanguageTR extends Model
             $this->other(),
             $this->loginRegister(),
             $this->carbon(),
+            $this->step(),
         );
+    }
+
+    // Step
+    private function step() {
+        return [
+            "step update amount" => "Adım verisi başarıyla güncellendi.",
+        ];
     }
 
     // Carbon
@@ -49,6 +57,10 @@ class LanguageTR extends Model
     private function other()
     {
         return [
+            "other day" => "gün",
+            "other hour" => "saat",
+            "other minute" => "dakika",
+            "other min" => "dk",
             "other something went wrong" => "Bir şeyler yanlış gitti."
         ];
     }

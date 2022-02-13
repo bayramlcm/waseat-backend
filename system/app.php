@@ -148,10 +148,13 @@ class App extends System
   // Note: Middleware (Ara katman)
   public static function Middleware($path, $func = null)
   {
-    self::$appMiddlewares[] = [
-      'path' => '/' . trim($path, '/'),
-      'func' => $func,
-    ];
+    $paths = is_array($path) ? $path : [$path];
+    foreach ($paths as $path) {
+      self::$appMiddlewares[] = [
+        'path' => '/' . trim($path, '/'),
+        'func' => $func,
+      ];
+    }
   }
 
   // NOTE: Modül Yükle

@@ -12,7 +12,15 @@ class LanguageEN extends Model
             $this->other(),
             $this->loginRegister(),
             $this->carbon(),
+            $this->step(),
         );
+    }
+
+    // Step
+    private function step() {
+        return [
+            "step update amount" => "Step data updated successfull.",
+        ];
     }
 
     // Carbon
@@ -32,7 +40,7 @@ class LanguageEN extends Model
             "loginRegister full name invalid" => "Enter your full name correctly.",
             "loginRegister phone invalid" => "Enter your phone correctly.",
             "loginRegister already register" => "You have already registered",
-            "loginRegister register successfully" => "you have successfully registered.",
+            "loginRegister register successfully" => "You have successfully registered.",
         ];
     } 
 
@@ -48,6 +56,10 @@ class LanguageEN extends Model
     private function other()
     {
         return [
+            "other day" => "day",
+            "other hour" => "hour",
+            "other minute" => "mins",
+            "other min" => "mins",
             "other something went wrong" => "Something went wrong."
         ];
     }

@@ -1,6 +1,8 @@
 <?php
 defined('SECRET') && SECRET === "@bayramlcm" or exit('Erişiminiz Engellendi');
 
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 
 // Route -> (METHOD, URL, CONTROLLER, DATA (opsiyonel))
 // Middleware -> (URL, MIDDLEWARE FUNCTION)
@@ -55,7 +57,73 @@ App::LanguageRoute('POST', [
     'en' => '/en/carbon/car/variants',
 ], '/carbon/car/variants');
 
-// 404
+
+/*************************************************
+ *                Konum Araçları                 *
+ *************************************************/
+
+// ******** 2 Konum Arası Uzaklık **********
+App::LanguageRoute('POST', [
+    'tr' => '/tr/maps/travel',
+    'en' => '/en/maps/travel',
+], '/maps/travel');
+
+// ********* Maps Arama Sonuçları **********
+App::LanguageRoute('POST', [
+    'tr' => '/tr/maps/place/autocomplete',
+    'en' => '/en/maps/place/autocomplete',
+], '/maps/place/autocomplete');
+
+App::LanguageRoute('POST', [
+    'tr' => '/tr/maps/place/detail',
+    'en' => '/en/maps/place/detail',
+], '/maps/place/detail');
+
+
+
+
+
+/*************************************************
+ *               Oturum İşlemleri                *
+ *************************************************/
+// Middleware
+App::Middleware(['/tr/v1', '/en/v1'], function () {
+    $sessionErrorMessage = $_SESSION["language"] === "tr" ? "Oturumunuz sonlandırıldı." : "Your account cannot be verified.";
+    // Oturum kontrolü
+    try {
+        $token = App::getToken();
+        $payload = JWT::decode($token, new Key(App::$appConfig["jwt"], 'HS256'));
+        // Kullanıcı hesap kontrolü
+        $userData = App::$appModule->Mysql->get(
+            "SELECT * FROM users WHERE id = ?",
+            [$payload->userId]
+        );
+        if (!$userData) {
+            exit(json_encode([
+                "status" => false,
+                "message" => $sessionErrorMessage,
+                "data" => null,
+            ]));
+        }
+    } catch (\Throwable $th) {
+        exit(json_encode([
+            "status" => false,
+            "message" => $sessionErrorMessage,
+            "data" => null,
+        ]));
+    }
+    // ************  Adım Güncelle *************    
+    App::LanguageRoute('POST', [
+        'tr' => '/tr/v1/step/update',
+        'en' => '/en/v1/step/update',
+    ], '/v1/step/update', ["userData" => $userData]);
+
+});
+
+/*************************************************
+ *                     404                       *
+ *************************************************/
+
 App::LanguageRoute('GET', [
     'tr' => '/tr/404',
     'en' =>  '/en/404',
