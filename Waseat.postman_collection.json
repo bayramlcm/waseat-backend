@@ -1,0 +1,371 @@
+{
+    "info": {
+        "_postman_id": "34aaa313-8280-4c58-801a-3392204fbb5f",
+        "name": "Waseat",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [{
+            "name": "Register",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"fullname\": \"Bayram ALAÇAM\",\n    \"email\": \"bayramlcm14@gmail.com\",\n    \"phone\": 5554443322,\n    \"password\": \"12345678\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{URL}}/{{LANG}}/register",
+                    "host": [
+                        "{{URL}}"
+                    ],
+                    "path": [
+                        "{{LANG}}",
+                        "register"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Login - Email",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"email\": \"bayramlcm16@gmail.com\",\n    \"password\": \"12345678\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{URL}}/{{LANG}}/login",
+                    "host": [
+                        "{{URL}}"
+                    ],
+                    "path": [
+                        "{{LANG}}",
+                        "login"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Login - Phone",
+            "request": {
+                "method": "POST",
+                "header": [{
+                    "key": "",
+                    "value": "",
+                    "type": "text"
+                }],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"email\": \"5349370192\",\n    \"password\": \"12345678\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{URL}}/{{LANG}}/login",
+                    "host": [
+                        "{{URL}}"
+                    ],
+                    "path": [
+                        "{{LANG}}",
+                        "login"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Araba Yıl",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "{{URL}}/{{LANG}}/carbon/car/years",
+                    "host": [
+                        "{{URL}}"
+                    ],
+                    "path": [
+                        "{{LANG}}",
+                        "carbon",
+                        "car",
+                        "years"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Araba Yıl > Brand",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"year\": \"2000\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{URL}}/{{LANG}}/carbon/car/brands",
+                    "host": [
+                        "{{URL}}"
+                    ],
+                    "path": [
+                        "{{LANG}}",
+                        "carbon",
+                        "car",
+                        "brands"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Araba Yıl > Brand > Model",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"year\": \"2000\",\n    \"brand\": \"ALFA ROMEO\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{URL}}/{{LANG}}/carbon/car/models",
+                    "host": [
+                        "{{URL}}"
+                    ],
+                    "path": [
+                        "{{LANG}}",
+                        "carbon",
+                        "car",
+                        "models"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Araba Yıl > Brand > Model > Varyant",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"year\": \"2000\",\n    \"brand\": \"ALFA ROMEO\",\n    \"model\": \"145 Range\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{URL}}/{{LANG}}/carbon/car/variants",
+                    "host": [
+                        "{{URL}}"
+                    ],
+                    "path": [
+                        "{{LANG}}",
+                        "carbon",
+                        "car",
+                        "variants"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Adım Güncelle",
+            "request": {
+                "method": "POST",
+                "header": [{
+                    "key": "Authorization",
+                    "value": "{{TOKEN}}",
+                    "type": "text"
+                }],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"amount\": 11857,\n    \"date\": \"10-01-2022\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{URL}}/{{LANG}}/v1/step/update",
+                    "host": [
+                        "{{URL}}"
+                    ],
+                    "path": [
+                        "{{LANG}}",
+                        "v1",
+                        "step",
+                        "update"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Konum Arası Ulaşım",
+            "request": {
+                "method": "POST",
+                "header": [{
+                    "key": "Authorization",
+                    "value": "{{TOKEN}}",
+                    "type": "text"
+                }],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"from\": \"40.8793413,29.2493802\",\n    \"to\": \"40.9799364,29.0262192\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{URL}}/{{LANG}}/maps/travel",
+                    "host": [
+                        "{{URL}}"
+                    ],
+                    "path": [
+                        "{{LANG}}",
+                        "maps",
+                        "travel"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Arama için 1.adım text",
+            "request": {
+                "method": "POST",
+                "header": [{
+                    "key": "Authorization",
+                    "value": "{{TOKEN}}",
+                    "type": "text"
+                }],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"text\": \"marmara\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{URL}}/{{LANG}}/maps/place/autocomplete",
+                    "host": [
+                        "{{URL}}"
+                    ],
+                    "path": [
+                        "{{LANG}}",
+                        "maps",
+                        "place",
+                        "autocomplete"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Arama için 2.adım kordinat",
+            "request": {
+                "method": "POST",
+                "header": [{
+                    "key": "Authorization",
+                    "value": "{{TOKEN}}",
+                    "type": "text"
+                }],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"place_id\": \"ChIJ6TBYg5_cyhQReAJjhr5c4fU\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{URL}}/{{LANG}}/maps/place/detail",
+                    "host": [
+                        "{{URL}}"
+                    ],
+                    "path": [
+                        "{{LANG}}",
+                        "maps",
+                        "place",
+                        "detail"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "event": [{
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [{
+            "key": "URL",
+            "value": "https://flutter.istanbul/waseat"
+        },
+        {
+            "key": "LANG",
+            "value": "tr"
+        },
+        {
+            "key": "TOKEN",
+            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiIxIn0.MJDbW9MGmKm6AxwIZ5QNQdKmY4bu8h-G0fm3i6NoLzA"
+        },
+        {
+            "key": "URL",
+            "value": "http://carbon.localhost"
+        },
+        {
+            "key": "LANG",
+            "value": "en"
+        }
+    ]
+}
